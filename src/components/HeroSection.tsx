@@ -51,9 +51,9 @@ const HeroSection = () => {
 
         <div className="flex items-center justify-center gap-5 text-muted-foreground">
           {[
-            { icon: Github, href: "https://github.com", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: WhatsAppIcon, href: "https://wa.me/", label: "WhatsApp" },
+          { icon: Github, href: "https://github.com/Rooseveltfj", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/rooseveltfj/", label: "LinkedIn" },
+            { icon: WhatsAppIcon, href: "https://wa.link/kboiml", label: "WhatsApp" },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}

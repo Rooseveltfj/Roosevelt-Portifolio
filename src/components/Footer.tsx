@@ -14,7 +14,7 @@ const Footer = () => {
         {[
           { icon: Github, href: "https://github.com/Rooseveltfj", label: "GitHub" },
           { icon: Linkedin, href: "https://www.linkedin.com/in/rooseveltfj/", label: "LinkedIn" },
-          { icon: WhatsAppIcon, href: "https://wa.me/", label: "WhatsApp" },
+          { icon: WhatsAppIcon, href: "https://wa.link/kboiml", label: "WhatsApp" },
         ].map(({ icon: Icon, href, label }) => (
           <a
             key={label}

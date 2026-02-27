@@ -4,7 +4,7 @@ import SectionHeading from "./SectionHeading";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const projectList = [
-  { key: "proj1" as const, tech: ["React", "TypeScript", "D3.js", "Tailwind"], color: "from-blue-500/20 to-cyan-500/20" },
+  { key: "proj1" as const, tech: ["React", "TypeScript", "D3.js", "Tailwind"], color: "from-blue-500/20 to-cyan-500/20", image: "/fintrack.png", demoLink: "https://finance-dashboard-omega-khaki.vercel.app/" },
   { key: "proj2" as const, tech: ["Next.js", "Prisma", "Stripe", "Vercel"], color: "from-emerald-500/20 to-teal-500/20" },
   { key: "proj3" as const, tech: ["React", "WebSocket", "Redis", "PostgreSQL"], color: "from-violet-500/20 to-purple-500/20" },
   { key: "proj4" as const, tech: ["Vue.js", "OpenAPI", "Monaco", "Node.js"], color: "from-orange-500/20 to-amber-500/20" },
@@ -14,12 +14,14 @@ const projectList = [
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
-  const projects = projectList.map(({ key, tech, color }) => ({
+  const projects = projectList.map(({ key, tech, color, image, demoLink }) => ({
     title: t.projects[`${key}Title`],
     description: t.projects[`${key}Desc`],
     challenge: t.projects[`${key}Challenge`],
     tech,
     color,
+    image,
+    demoLink
   }));
   return (
   <section id="projects" className="section-padding">
@@ -35,9 +37,13 @@ const ProjectsSection = () => {
           <ScrollReveal key={project.title} delay={i * 0.08}>
             <div className="glass-card group h-full flex flex-col overflow-hidden hover:border-primary/30 transition-all duration-300">
               <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <div className="font-mono text-sm text-foreground/60 px-4 py-2 rounded-lg bg-background/50 backdrop-blur">
-                  {project.title}
-                </div>
+                {project.image ? (
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="font-mono text-sm text-foreground/60 px-4 py-2 rounded-lg bg-background/50 backdrop-blur">
+                    {project.title}
+                  </div>
+                )}
               </div>
 
               <div className="p-6 flex flex-col flex-1">
@@ -61,7 +67,9 @@ const ProjectsSection = () => {
 
                 <div className="flex gap-3">
                   <a
-                    href="#"
+                    href={project.demoLink || "#"}
+                    target={project.demoLink ? "_blank" : undefined}
+                    rel={project.demoLink ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <ExternalLink size={14} /> {t.projects.liveDemo}
