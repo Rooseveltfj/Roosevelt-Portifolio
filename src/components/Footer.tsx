@@ -1,4 +1,5 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
@@ -13,7 +14,7 @@ const Footer = () => {
         {[
           { icon: Github, href: "https://github.com/Rooseveltfj", label: "GitHub" },
           { icon: Linkedin, href: "https://www.linkedin.com/in/rooseveltfj/", label: "LinkedIn" },
-          { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+          { icon: WhatsAppIcon, href: "https://wa.me/", label: "WhatsApp" },
         ].map(({ icon: Icon, href, label }) => (
           <a
             key={label}
